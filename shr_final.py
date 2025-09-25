@@ -53,6 +53,7 @@ def process_json_file(json_file_path, keypoints, keypoints_hand, orientation):
 
 def main():
     openpose_demo_exe = ".\\build\\x64\\Release\\OpenPoseDemo.exe"
+    
     input_dir = "in_img"
     output_images_dir = "out_img"
     output_json_dir = "out_json"
@@ -122,10 +123,14 @@ def process_json_file(data, json_file_path, keypoints, keypoints_hand, orientati
         json.dump(data, file, indent=4)
 
 def main():
-    openpose_demo_exe = ".\\build\\x64\\Release\\OpenPoseDemo.exe"
-    input_dir = "in_img"
-    output_images_dir = "out_img"
-    output_json_dir = "out_json"
+    openpose_demo_exe = r"C:\Users\rampu\Samir\Science\openpose\bin\OpenPoseDemo.exe"
+
+    # Use absolute paths to avoid confusion
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    input_dir = os.path.join(base_dir, "in_img")
+    output_images_dir = os.path.join(base_dir, "out_img")
+    output_json_dir = os.path.join(base_dir, "out_json")
 
     command = [
         openpose_demo_exe,
